@@ -1,0 +1,39 @@
+---
+title: "**Assignment6**"
+author: "_Raja Alfiq Izrin_"
+date: "_11/5/2020_"
+output: html_document
+---
+
+_My First knitr Document_
+
+<center>
+<p style = "font-family:forte;font-size:55px">
+__Average Heights and Weights for American
+                     Women__
+</center>
+</p>
+
+<font size= "5">
+1. The data frame consists of:
+   * 2 variables
+   * n = 15
+
+```{r, echo=FALSE, warning=FALSE}
+library(knitr)
+kable(women[1:16, ], caption = "A knitr table" )
+```
+
+2. Below is the **summary** of the dataset.
+```{r, echo=FALSE}
+summary(women)
+```
+
+3. Example of **Scatter Plot**
+
+```{r, echo=FALSE}
+plot(women)
+```
+
+__THE END__
+</font>

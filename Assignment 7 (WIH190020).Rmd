@@ -1,0 +1,110 @@
+---
+title: "Assignment 7"
+author: "Raja Alfiq Izrin"
+date: "5/12/2020"
+output: html_document
+---
+
+_Lab 6 - EDA_
+
+<center>
+<p style = "font-family:forte;font-size:55px">
+__Exploring Data with R__
+</center>
+</p>
+
+<font size= "5">
+Determine what R function to use for the following:
+1.	See basic descriptive statistics
+```{r}
+summary(attitude)
+```
+Run the function and observe the output, paste your output here.
+
+a)	What is the difference between (attitude[4]) and (attitude$learning)
+```{r}
+attitude[4]
+```
+```{r}
+attitude$learning
+```
+    The difference between (attitude[4]) and (attitude$learning) is that one is subsetting via index position and the other is subsetting using the variable name.
+
+2.	Lists name of variables in a dataset
+```{r}
+names(attitude)
+```
+
+3.	Calculate number of rows in a dataset
+```{r}
+dim(attitude)[1]
+```
+
+4.	Calculate number of columns in a dataset
+```{r}
+dim(attitude)[2]
+```
+
+5.	List structure of a dataset
+```{r}
+str(attitude)
+```
+
+6.	See first 6 rows (by default) of dataset
+```{r}
+head(attitude)
+```
+
+7.	See first n rows of dataset
+    head(attitude, n)
+Select to see the first 15 rows of dataset
+```{r}
+head(attitude, n=15)
+```
+8.	See all rows but not the last row
+```{r}
+head(attitude, n=-1)
+```
+
+9.	See last 6 rows (by default) of a dataset
+```{r}
+tail(attitude)
+```
+
+10.	See last n rows of dataset
+    tail(attitude, n)
+Select to see the last 12 rows of dataset.
+```{r}
+tail(attitude, n=12)
+```
+
+11.	See the last n rows but not the first row
+```{r}
+tail(attitude, n=-1)
+```
+
+12.	Number of missing values
+Which function will returns number of missing values in each variable of a dataset?
+```{r}
+sapply(attitude, function(attitude) sum(is.na(attitude)))
+```
+
+13.	Number of missing values in a single variable
+```{r}
+sum(is.na(attitude$privileges))
+```
+
+14.	Plot a simple graph, which will appear on a screen device.
+```{r}
+plot(attitude)
+```
+
+15.	Plot the graph shown below, and make it appear on a file device (a pdf file)
+```{r}
+with(attitude, (plot(privileges, learning, main="Learning Attitude", xlab = "Privileges", ylab = "Learning")))
+```
+```{r}
+pdf(file="LearningAttitudeGraph.pdf")
+with(attitude, plot(privileges, learning, main="Learning Attitude"))
+dev.off()
+```
